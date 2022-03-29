@@ -37,9 +37,9 @@ const updateAnagramsStorage = (oneWord: word, anagramsStorage: maybeAnagramStora
       completed: false,
     } : null;
   } else {
-    const { anagrams: [anagram], charsArr } = anagramsStorage;
+    const { anagrams: [anagram], charsArr, completed } = anagramsStorage;
     const newCharsArr = isWordAnagram(wordChars, charsArr);
-    if (newCharsArr && newCharsArr.length == 0 && oneWord.length > 0) {
+    if (newCharsArr && newCharsArr.length == 0 && !completed) {
       return {
         anagrams: [anagram, oneWord],
         charsArr: [],
