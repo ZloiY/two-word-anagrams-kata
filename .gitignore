@@ -1,4 +1,4 @@
-*/.DS_Store
+.DS_Store
 **/node_modules/
 rescript/lib/
 rescript/.bsb.lock

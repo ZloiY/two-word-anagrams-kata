@@ -1,12 +1,10 @@
 open ReadFile
 open Parser
+open Promise
 
-let callback = (string: string) => {
-  switch string
-  -> Parser.parseString {
+ReadFile.readFileWithCallback("../dictionary")
+-> then((text) => text 
+  -> Belt.Option.map(_, (str) => switch str -> Parser.parseString {
   | Some(anagrams) => Js.log(anagrams)
   | None => ()
-  }
-}
-
-ReadFile.readFileWithCallback(callback, "../dictionary")
+  })->resolve)->ignore
